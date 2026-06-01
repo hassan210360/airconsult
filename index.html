@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Elevate | Business Suite</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fbfdfc;
+            color: #1a2c2e;
+            scroll-behavior: smooth;
+        }
+
+        /* sleek container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* header & nav */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo-img {
+            max-height: 56px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .brand-text {
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, #1f5e5a, #2b8b7a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #2c5f5a;
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #1b7b6b;
+            border-bottom: 2px solid #2b8b7a;
+            padding-bottom: 4px;
+        }
+
+        /* hero / banner */
+        .hero {
+            margin: 40px 0 30px;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.08);
+        }
+
+        .banner-img {
+            width: 100%;
+            max-height: 380px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* sections grid & cards */
+        .section-block {
+            margin: 70px 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 32px;
+            position: relative;
+            display: inline-block;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #2b8b7a;
+            border-radius: 4px;
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.03), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+            transition: all 0.25s ease;
+            border: 1px solid #edf2f2;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background: #eef3f1;
+        }
+
+        .card-content {
+            padding: 24px 20px 28px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #194e48;
+        }
+
+        .card-desc {
+            color: #3f5e5a;
+            line-height: 1.45;
+            font-size: 0.95rem;
+        }
+
+        /* testimonials special style */
+        .testimonial-card {
+            background: #ffffffea;
+            border-left: 4px solid #2b8b7a;
+        }
+
+        /* contact + company info */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background: white;
+            border-radius: 32px;
+            padding: 32px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+            border: 1px solid #eef2f0;
+        }
+
+        .info-detail p {
+            margin: 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .info-detail i {
+            width: 28px;
+            color: #2b8b7a;
+            font-size: 1.2rem;
+        }
+
+        .social-links a {
+            margin-right: 20px;
+            color: #1e4e48;
+            font-size: 1.6rem;
+            transition: 0.2s;
+        }
+
+        .social-links a:hover {
+            color: #2b8b7a;
+            transform: scale(1.05);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            background: #25D366;
+            color: white;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: 0.2s;
+            z-index: 99;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            background: #1ebe5d;
+            transform: scale(1.05);
+        }
+
+        footer {
+            margin-top: 80px;
+            background: #0f2d2a;
+            color: #ccdfdb;
+            padding: 32px 0;
+            text-align: center;
+            border-radius: 32px 32px 0 0;
+        }
+
+        @media (max-width: 780px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        .loading-message {
+            text-align: center;
+            padding: 40px;
+            color: #5f7e79;
+        }
+
+        .error-message {
+            background: #ffe6e5;
+            padding: 12px;
+            border-radius: 20px;
+            color: #bc544b;
+            margin: 10px 0;
+        }
+
+        button.whatsapp-btn {
+            background: none;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Navigation -->
+        <div class="navbar">
+            <div class="logo-area" id="logoContainer">
+                <img id="logoImg" class="logo-img" src="Assets/logo.png" alt="Logo" onerror="this.style.display='none'">
+                <span class="brand-text" id="companyNameFallback">Elevate Co.</span>
+            </div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#vision-mission">Vision & Mission</a>
+                <a href="#objectives">Objectives</a>
+                <a href="#services">Services</a>
+                <a href="#representation">Representation</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+
+        <!-- Banner Section -->
+        <div class="hero">
+            <img id="bannerImage" class="banner-img" src="Assets/banner.jpg" alt="Company banner"
+                onerror="this.src='https://placehold.co/1280x400/eef3f1/2b5f59?text=Banner+Image';">
+        </div>
+
+        <!-- dynamic sections will be injected here -->
+        <div id="dynamicContent"></div>
+
+        <!-- Company Info & Contact Section (populated via CSV) -->
+        <div id="contactInfoSection" class="section-block">
+            <!-- will be filled -->
+        </div>
+
+        <footer>
+            <p>&copy; <span id="footerYear"></span> <span id="footerCompany">Your Company</span> — All visions realized.
+            </p>
+        </footer>
+    </div>
+
+    <!-- Floating WhatsApp -->
+    <a id="whatsappLink" class="whatsapp-float" target="_blank"
+        href="https://wa.me/1234567890?text=Hello%20I%27d%20like%20to%20know%20more">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // ------------------------------------------------------------------
+        // CONFIGURATION: expects Assets folder with images (image1.jpg ... image99.jpg)
+        // and CSV files: images.csv (format: image_filename, short_description, assigned_section)
+        // but as per requirement: "short description appears with the images" and 
+        // section description under the image such as image1 section1 will describe section (vision, mission etc)
+        // we also need companyinfo.csv (company name, long description, address, mobile, email, website, Instagram, LinkedIn)
+        // plus optional mapping to show each image in proper business section.
+        //
+        // Implementation approach:
+        // 1. Fetch companyinfo.csv -> fill company details, contact, social, whatsapp number (from companyinfo or separate? but we use companyinfo)
+        // 2. Fetch images.csv -> each row: image_filename, short_description, section_key (e.g., "about", "vision", "mission", "objectives", "services", "representation", "testimonials").
+        //    If no section mapping, we assign fallback but user can add column.
+        //    For simplicity: images.csv columns: image, description, section_name. section_name used to group.
+        //    If images.csv missing, we auto-discover images from Assets/image*.jpg and assign generic.
+        // 3. Display images accordingly with their short descriptions under each business section.
+        // 4. Also show section descriptions from data? We have static headings plus image cards per section.
+        // 5. Additionally, each section (Vision, Mission etc) gets images that have matching section_name.
+        //    the CSV description appears under image.
+        //
+        // We also support representation, testimonials etc.
+        // If no CSV, we still show discovered images with placeholder description.
+        // ------------------------------------------------------------------
+
+        // Helper: parse CSV (simple)
+        function parseCSV(csvText) {
+            const lines = csvText.trim().split(/\r?\n/);
+            if (lines.length === 0) return [];
+            const headers = lines[0].split(',').map(h => h.trim().replace(/^"|"$/g, ''));
+            const result = [];
+            for (let i = 1; i < lines.length; i++) {
+                if (!lines[i].trim()) continue;
+                // naive CSV respecting quotes
+                let row = [];
+                let inQuote = false;
+                let current = '';
+                for (let ch of lines[i]) {
+                    if (ch === '"') {
+                        inQuote = !inQuote;
+                    } else if (ch === ',' && !inQuote) {
+                        row.push(current.trim().replace(/^"|"$/g, ''));
+                        current = '';
+                    } else {
+                        current += ch;
+                    }
+                }
+                row.push(current.trim().replace(/^"|"$/g, ''));
+                let obj = {};
+                headers.forEach((h, idx) => { obj[h] = row[idx] || ''; });
+                result.push(obj);
+            }
+            return result;
+        }
+
+        // Global store
+        let companyData = {
+            companyName: 'Elevate Business',
+            longDescription: 'Empowering enterprises with future-ready solutions.',
+            address: '123 Innovation Drive, Metropolis',
+            mobile: '+1 234 567 8900',
+            email: 'contact@elevate.com',
+            website: 'https://www.elevate.com',
+            instagram: 'https://instagram.com/elevate',
+            linkedin: 'https://linkedin.com/company/elevate',
+            whatsapp: '1234567890'   // default changeable
+        };
+
+        let imageItems = []; // each: { filename, description, section }
+        let discoveredImages = []; // for fallback detection
+
+        // Function to fetch companyinfo.csv
+        async function fetchCompanyInfo() {
+            try {
+                const response = await fetch('Assets/companyinfo.csv');
+                if (response.ok) {
+                    const csvText = await response.text();
+                    const rows = parseCSV(csvText);
+                    if (rows.length > 0) {
+                        const info = rows[0];
+                        companyData.companyName = info.companyName || info.companyname || companyData.companyName;
+                        companyData.longDescription = info.longDescription || info.longdescription || info.description || companyData.longDescription;
+                        companyData.address = info.address || companyData.address;
+                        companyData.mobile = info.mobile || info.phone || companyData.mobile;
+                        companyData.email = info.email || companyData.email;
+                        companyData.website = info.website || companyData.website;
+                        companyData.instagram = info.instagram || companyData.instagram;
+                        companyData.linkedin = info.linkedin || companyData.linkedin;
+                        if (info.whatsapp) companyData.whatsapp = info.whatsapp;
+                    }
+                } else {
+                    console.log("companyinfo.csv not found, using defaults");
+                }
+            } catch (e) { console.warn("companyinfo fetch error", e); }
+            // update UI elements
+            document.getElementById('companyNameFallback').innerText = companyData.companyName;
+            document.getElementById('footerCompany').innerText = companyData.companyName;
+            const footerYear = new Date().getFullYear();
+            document.getElementById('footerYear').innerText = footerYear;
+            // update whatsapp link
+            let waNumber = companyData.whatsapp.replace(/\D/g, '');
+            if (!waNumber.startsWith('1') && waNumber.length === 10) waNumber = '1' + waNumber;
+            const waLink = `https://wa.me/${waNumber}?text=Hello%20I'm%20interested%20in%20your%20services`;
+            document.getElementById('whatsappLink').href = waLink;
+            // fill contact section after building structure
+            renderContactSection();
+        }
+
+        // fetch images.csv and combine with actual /Assets/image*.jpg detection
+        async function fetchImagesAndSections() {
+            let csvMap = new Map(); // filename -> {desc, section}
+            try {
+                const resp = await fetch('Assets/images.csv');
+                if (resp.ok) {
+                    const csvText = await resp.text();
+                    const rows = parseCSV(csvText);
+                    rows.forEach(row => {
+                        let imgFile = (row.image || row.filename || '').trim();
+                        let desc = (row.short_description || row.description || '').trim();
+                        let sectionName = (row.section_name || row.section || '').trim().toLowerCase();
+                        if (imgFile) {
+                            csvMap.set(imgFile, { description: desc || 'inspiring moment', section: sectionName || 'general' });
+                        }
+                    });
+                } else {
+                    console.log("images.csv not found, using auto-detection with generic descriptions.");
+                }
+            } catch (e) { console.warn("images.csv error", e); }
+
+            // Discover images from Assets/image1.jpg ... image99.jpg
+            // we can't list directory, but we try to test existence up to 99. 
+            const testPromises = [];
+            const imageList = [];
+            for (let i = 1; i <= 99; i++) {
+                const imgUrl = `Assets/image${i}.jpg`;
+                testPromises.push(
+                    fetch(imgUrl, { method: 'HEAD' }).then(res => {
+                        if (res.ok) imageList.push({ filename: `image${i}.jpg`, fullPath: imgUrl });
+                    }).catch(() => { })
+                );
+            }
+            await Promise.all(testPromises);
+            // also include any other jpg? optional but we honor image1-99
+            // if additional like vision.jpg etc? not needed, but we use those.
+            for (let img of imageList) {
+                const csvInfo = csvMap.get(img.filename);
+                let description = (csvInfo && csvInfo.description) ? csvInfo.description : `Visual impression for ${img.filename}`;
+                let sectionKey = (csvInfo && csvInfo.section) ? csvInfo.section : getDefaultSectionFromIndex(img.filename);
+                imageItems.push({
+                    filename: img.filename,
+                    path: img.fullPath,
+                    description: description,
+                    section: sectionKey
+                });
+            }
+            // if no images discovered, add placeholder info but not break
+            if (imageItems.length === 0) {
+                console.warn("No images detected in Assets/image[1-99].jpg, please add some images.");
+                // dummy to show demo cards
+                imageItems.push({ filename: 'demo1.jpg', path: 'https://placehold.co/600x400/eef3f1/2f6b63?text=Sample+Image', description: 'Placeholder image', section: 'about' });
+            }
+            renderAllSections();
+        }
+
+        // helper: mapping index to logical section if no csv mapping
+        function getDefaultSectionFromIndex(filename) {
+            const num = parseInt(filename.match(/\d+/)?.[0] || '0');
+            if (num % 7 === 1) return 'about';
+            if (num % 7 === 2) return 'vision';
+            if (num % 7 === 3) return 'mission';
+            if (num % 7 === 4) return 'objectives';
+            if (num % 7 === 5) return 'services';
+            if (num % 7 === 6) return 'representation';
+            return 'testimonials';
+        }
+
+        // define sections order and display title, plus optional extra static description lines
+        const sectionsMeta = [
+            { id: 'about', title: 'About the Company', defaultDesc: '' },
+            { id: 'vision', title: 'Our Vision', defaultDesc: 'Shaping a future of innovation and integrity.' },
+            { id: 'mission', title: 'Mission', defaultDesc: 'Deliver excellence, empower communities.' },
+            { id: 'objectives', title: 'Strategic Objectives', defaultDesc: 'Sustainable growth, client-centric approach.' },
+            { id: 'services', title: 'Services We Offer', defaultDesc: 'Tailored solutions for modern business.' },
+            { id: 'representation', title: 'Representation', defaultDesc: 'Global presence & trusted partnerships.' },
+            { id: 'testimonials', title: 'Client Testimonials', defaultDesc: 'What our partners say about us.' }
+        ];
+
+        function renderAllSections() {
+            const container = document.getElementById('dynamicContent');
+            if (!container) return;
+            let html = '';
+            for (let section of sectionsMeta) {
+                const sectionImages = imageItems.filter(img => img.section === section.id);
+                // if no images but we still want to show at least one informative card (using company long description if about, etc)
+                // but we enforce each section gets at least one card? maybe add a default card if empty but we want images
+                if (sectionImages.length === 0) {
+                    // fallback card without image but show description only if we want, elegant placeholder
+                    html += `
+                    <div class="section-block" id="${section.id}">
+                        <h2 class="section-title">${section.title}</h2>
+                        <div class="grid-2col">
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="card-title">${section.title}</div>
+                                    <div class="card-desc">${section.defaultDesc || 'Content coming soon. Add related images to this section in images.csv with proper section name.'}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                } else {
+                    let cardsHtml = '';
+                    for (let img of sectionImages) {
+                        cardsHtml += `
+                        <div class="card">
+                            <img class="card-img" src="${img.path}" alt="${img.filename}" onerror="this.src='https://placehold.co/600x400/eef3f1/2b8b7a?text=Missing+Image'">
+                            <div class="card-content">
+                                <div class="card-title">${section.title}</div>
+                                <div class="card-desc">${escapeHtml(img.description)}</div>
+                            </div>
+                        </div>
+                    `;
+                    }
+                    html += `
+                    <div class="section-block" id="${section.id}">
+                        <h2 class="section-title">${section.title}</h2>
+                        <div class="grid-2col">
+                            ${cardsHtml}
+                        </div>
+                    </div>
+                `;
+                }
+            }
+            container.innerHTML = html;
+            // additionally ensure about section may show company long description if needed
+            const aboutSectionElement = document.getElementById('about');
+            if (aboutSectionElement && companyData.longDescription) {
+                const existingGrid = aboutSectionElement.querySelector('.grid-2col');
+                if (existingGrid) {
+                    const firstCard = existingGrid.querySelector('.card');
+                    if (firstCard) {
+                        const descDiv = firstCard.querySelector('.card-desc');
+                        if (descDiv && !descDiv.innerHTML.includes(companyData.longDescription)) {
+                            descDiv.innerHTML = `<strong>${companyData.companyName}</strong><br>${escapeHtml(companyData.longDescription)}<br><br>${descDiv.innerHTML}`;
+                        }
+                    } else {
+                        // add extra info card
+                    }
+                }
+            }
+        }
+
+        function renderContactSection() {
+            const contactContainer = document.getElementById('contactInfoSection');
+            if (!contactContainer) return;
+            const socialLinks = `
+            <div class="social-links">
+                ${companyData.instagram ? `<a href="${companyData.instagram}" target="_blank"><i class="fab fa-instagram"></i></a>` : ''}
+                ${companyData.linkedin ? `<a href="${companyData.linkedin}" target="_blank"><i class="fab fa-linkedin-in"></i></a>` : ''}
+            </div>
+        `;
+            const websiteLink = companyData.website ? `<p><i class="fas fa-globe"></i> <a href="${companyData.website}" target="_blank" style="color:#2b8b7a;">${companyData.website}</a></p>` : '';
+            const html = `
+            <h2 class="section-title">Contact & Company Info</h2>
+            <div class="contact-grid">
+                <div class="info-detail">
+                    <h3 style="margin-bottom: 16px;">${escapeHtml(companyData.companyName)}</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> ${escapeHtml(companyData.address)}</p>
+                    <p><i class="fas fa-phone-alt"></i> ${escapeHtml(companyData.mobile)}</p>
+                    <p><i class="fas fa-envelope"></i> ${escapeHtml(companyData.email)}</p>
+                    ${websiteLink}
+                    ${socialLinks}
+                </div>
+                <div class="info-detail">
+                    <h3>Get in touch</h3>
+                    <p><i class="fab fa-whatsapp"></i> WhatsApp: <strong>${escapeHtml(companyData.whatsapp)}</strong> (click floating button)</p>
+                    <p><i class="far fa-clock"></i> Mon - Fri: 9AM - 6PM</p>
+                    <p style="margin-top: 20px;"><i class="fas fa-comment-dots"></i> We reply within 24h.</p>
+                </div>
+            </div>
+        `;
+            contactContainer.innerHTML = html;
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/[&<>]/g, function (m) {
+                if (m === '&') return '&amp;';
+                if (m === '<') return '&lt;';
+                if (m === '>') return '&gt;';
+                return m;
+            }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function (c) {
+                return c;
+            });
+        }
+
+        // Load logo and banner with fallback
+        function loadVisualAssets() {
+            const logoImg = document.getElementById('logoImg');
+            if (logoImg) {
+                logoImg.onerror = () => { logoImg.style.display = 'none'; document.getElementById('companyNameFallback').style.display = 'inline-block'; };
+                // try to load, if fails style none
+            }
+            const banner = document.getElementById('bannerImage');
+            if (banner) {
+                banner.onerror = () => { banner.src = 'https://placehold.co/1280x400/eef3f1/2f6b63?text=Elevate+Banner'; };
+            }
+        }
+
+        // Handle additional image description (maybe CSV overrides)
+        async function init() {
+            loadVisualAssets();
+            await fetchCompanyInfo();
+            await fetchImagesAndSections();
+        }
+
+        init();
+    </script>
+</body>
+
+</html>
